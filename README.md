@@ -1,78 +1,64 @@
-    # ESP32 IoT Integration Lab
+# ESP32 IoT Integration Lab
 
-    Independent public portfolio project for **Python**, **automation**,
-    **systems integration** and **solutions engineering**.
+Independent public portfolio project for **ESP32**, **IoT integration**, **embedded documentation** and **Python log validation**.
 
-    This repository was created from scratch with a fictional domain and
-    synthetic data. It does not contain corporate code, real data, private
-    endpoints, credentials, logs or proprietary rules.
+This repository was created from scratch with generic firmware examples and synthetic logs. It does not contain corporate code, real data, private endpoints, credentials, logs or proprietary rules.
 
-    ## Problem
+## Problem
 
-    IoT integration requires modular tests for serial, RFID, CAN, I2C and cellular/GNSS concepts.
+IoT labs need a clear way to evolve UART, RFID, CAN, GNSS, Cellular and MQTT experiments without mixing unrelated examples or depending on private hardware context.
 
-    ## Objective
+## What It Demonstrates
 
-    Create a safe public lab for documenting and testing generic ESP32 integration patterns.
+- Generic ESP32 firmware foundation.
+- Modular lab structure for UART, RFID, CAN, GNSS, Cellular and future MQTT work.
+- Public bench documentation and generic pinout.
+- Synthetic serial logs.
+- Python parser for module readiness signals.
+- Focused tests for parser and manifest behavior.
 
-    ## Current Features
+## Architecture
 
-    - Generic ESP32 sketch.
-- Synthetic serial log.
-- Python log parser.
-- Public lab documentation.
+```mermaid
+flowchart LR
+    A["Generic firmware"] --> B["Synthetic serial log"]
+    B --> C["Python parser"]
+    D["Bench docs"] --> A
+    D --> E["Module roadmap"]
+```
 
-    ## Architecture
+See [docs/architecture.md](docs/architecture.md), [docs/bench-lab.md](docs/bench-lab.md) and [docs/generic-pinout.md](docs/generic-pinout.md).
 
-    ```mermaid
-    flowchart LR
-        A["Synthetic input"] --> B["Python processing"]
-        B --> C["Rules / validation"]
-        C --> D["Generated local output"]
-        D --> E["Future API / dashboard"]
-    ```
+## Stack
 
-    See [docs/architecture.md](docs/architecture.md) for details.
+`ESP32` `Arduino` `Python` `Serial logs` `Synthetic data` `Mermaid`
 
-    ## Stack
+## Run Locally
 
-    Current:
+```powershell
+python -m pip install -e .
+python examples/run_demo.py
+```
 
-    `Arduino` `ESP32` `Python` `Serial logs` `Synthetic data`
+## Run Tests
 
-    Planned evolution:
+```powershell
+python -m pip install -e ".[dev]"
+pytest
+```
 
-    - MQTT
-- CAN
-- RFID
-- GNSS
-- Cellular module
-- Hardware validation
+## Technical Decisions
 
-    ## Run Locally
+- MQTT is documented as future work instead of being added prematurely.
+- Hardware notes are generic and based on public bench concepts.
+- Synthetic logs are used so the project remains demonstrable without private devices.
 
-    ```powershell
-    python examples/run_demo.py
-    ```
+## Roadmap
 
-    The demo uses only files under `data/sample/` and writes generated output
-    to ignored local folders.
+- Add one module at a time with public references and synthetic logs.
+- Add MQTT after the next study phase.
+- Add bench photos or screenshots only if they contain no private information.
 
-    ## Repository Workflow
+## Security and Independence
 
-    This project is intended to evolve through:
-
-    - Issues for planned work.
-    - Milestones for learning phases.
-    - Small branches and pull requests.
-    - Releases when a useful increment is ready.
-
-    Draft issues are documented in [docs/github-issues.md](docs/github-issues.md).
-
-    ## Roadmap
-
-    See [ROADMAP.md](ROADMAP.md).
-
-    ## Security and Independence
-
-    See [SECURITY.md](SECURITY.md) and [DISCLAIMER.md](DISCLAIMER.md).
+See [SECURITY.md](SECURITY.md) and [DISCLAIMER.md](DISCLAIMER.md).

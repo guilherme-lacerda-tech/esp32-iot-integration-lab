@@ -1,30 +1,19 @@
-    # Architecture
+# Architecture
 
-    ## Design Goal
+## Design Goal
 
-    Create a safe public lab for documenting and testing generic ESP32 integration patterns.
+Organize a public ESP32 integration lab that can evolve module by module without copying private hardware designs or real operational data.
 
-    ## Current Boundaries
+## Structure
 
-    - Standard library first.
-    - Synthetic input only.
-    - Generated output ignored by Git.
-    - No real systems, endpoints or credentials.
+```mermaid
+flowchart TB
+    Docs["Public bench docs"] --> Firmware["Generic ESP32 firmware"]
+    Firmware --> Logs["Synthetic serial logs"]
+    Logs --> Parser["Python parser"]
+    Parser --> Summary["Readiness summary"]
+```
 
-    ## Decisions
+## Module Boundaries
 
-    - Keep firmware generic.
-- Use only public documentation.
-- Use synthetic serial logs for examples.
-
-    ## Future Layers
-
-    ```mermaid
-    flowchart TB
-        A["Mock inputs"] --> B["Collector / Loader"]
-        B --> C["Domain validation"]
-        C --> D["Rules / Processing"]
-        D --> E["Persistence"]
-        E --> F["API / Reporting"]
-        F --> G["Automation workflows"]
-    ```
+UART is the active validation path in v0.2.0. RFID, CAN and Cellular are documented with generic examples. GNSS remains planned. MQTT is explicitly left for a future study phase.
