@@ -1,0 +1,5 @@
+BOOT ok
+I2C device found at 0x40
+RFID demo tag: DEMO-1234
+CAN demo frame received
+CELL modem ready
