@@ -1,64 +1,79 @@
 # ESP32 IoT Integration Lab
 
-Independent public portfolio project for **ESP32**, **IoT integration**, **embedded documentation** and **Python log validation**.
+[![CI](https://github.com/guilherme-lacerda-tech/esp32-iot-integration-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/guilherme-lacerda-tech/esp32-iot-integration-lab/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+[![Release](https://img.shields.io/github/v/release/guilherme-lacerda-tech/esp32-iot-integration-lab)](https://github.com/guilherme-lacerda-tech/esp32-iot-integration-lab/releases)
+[![License](https://img.shields.io/github/license/guilherme-lacerda-tech/esp32-iot-integration-lab)](LICENSE)
 
-This repository was created from scratch with generic firmware examples and synthetic logs. It does not contain corporate code, real data, private endpoints, credentials, logs or proprietary rules.
+Public ESP32 integration lab with generic firmware notes, synthetic serial logs and Python validation helpers.
 
-## Problem
+## Why / Problem
 
-IoT labs need a clear way to evolve UART, RFID, CAN, GNSS, Cellular and MQTT experiments without mixing unrelated examples or depending on private hardware context.
+IoT experiments can become hard to evaluate when UART, RFID, CAN, GNSS, Cellular and MQTT ideas are mixed together. This repository keeps the lab modular and public.
 
-## What It Demonstrates
+## Features
 
 - Generic ESP32 firmware foundation.
-- Modular lab structure for UART, RFID, CAN, GNSS, Cellular and future MQTT work.
-- Public bench documentation and generic pinout.
+- Module manifest for UART, RFID, CAN, GNSS, Cellular and future MQTT.
+- Generic pinout documentation.
 - Synthetic serial logs.
 - Python parser for module readiness signals.
-- Focused tests for parser and manifest behavior.
+- CI with Ruff, PyTest and coverage for the Python helper layer.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    A["Generic firmware"] --> B["Synthetic serial log"]
-    B --> C["Python parser"]
-    D["Bench docs"] --> A
-    D --> E["Module roadmap"]
+    Firmware["Generic ESP32 firmware"] --> Logs["Synthetic serial log"]
+    Logs --> Parser["Python parser"]
+    Docs["Bench docs"] --> Firmware
+    Parser --> Summary["Module summary"]
 ```
 
-See [docs/architecture.md](docs/architecture.md), [docs/bench-lab.md](docs/bench-lab.md) and [docs/generic-pinout.md](docs/generic-pinout.md).
+## Tech Stack
 
-## Stack
+Current: `ESP32` `Arduino` `Python` `Serial logs` `Synthetic data` `PyTest` `Ruff`
 
-`ESP32` `Arduino` `Python` `Serial logs` `Synthetic data` `Mermaid`
+Planned: MQTT after the applied IoT study phase, plus one module at a time with public references.
 
-## Run Locally
-
-```powershell
-python -m pip install -e .
-python examples/run_demo.py
-```
-
-## Run Tests
+## Quick Start
 
 ```powershell
 python -m pip install -e ".[dev]"
-pytest
+python examples/run_demo.py
 ```
 
-## Technical Decisions
+## Tests
 
-- MQTT is documented as future work instead of being added prematurely.
+```powershell
+python -m pytest --cov --cov-report=term-missing
+python -m ruff check .
+```
+
+## Example Output
+
+```text
+{'BOOT': 1, 'UART': 1, 'I2C': 1, 'RFID': 1, 'CAN': 1, 'GNSS': 1, 'CELLULAR': 1, 'total_lines': 7}
+```
+
+## Project Structure
+
+- `firmware`: generic ESP32 sketch.
+- `docs/bench-lab.md`: module-by-module lab plan.
+- `docs/generic-pinout.md`: public pinout reference.
+- `src/esp32_iot_integration_lab`: Python parser and manifest helpers.
+- `tests`: parser and manifest tests.
+
+## Engineering Decisions
+
+- MQTT is intentionally future work, not a marketing checkbox.
 - Hardware notes are generic and based on public bench concepts.
-- Synthetic logs are used so the project remains demonstrable without private devices.
+- Synthetic logs keep the repository safe and reviewable.
 
 ## Roadmap
 
-- Add one module at a time with public references and synthetic logs.
-- Add MQTT after the next study phase.
-- Add bench photos or screenshots only if they contain no private information.
+See [ROADMAP.md](ROADMAP.md).
 
-## Security and Independence
+## Security
 
-See [SECURITY.md](SECURITY.md) and [DISCLAIMER.md](DISCLAIMER.md).
+No private hardware design, real operational logs, client identifiers or employer documentation are included.

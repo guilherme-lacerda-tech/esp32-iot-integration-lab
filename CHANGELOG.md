@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0 - Portfolio professionalization
+
+- Added GitHub Actions CI with Ruff, PyTest and coverage.
+- Polished README badges, examples and lab evaluation notes.
+- Kept MQTT documented as future work instead of adding premature implementation.
+
 ## v0.2.0 - Modular public ESP32 lab structure
 
 - Added module manifest for UART, RFID, CAN, GNSS, Cellular and future MQTT work.
