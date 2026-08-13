@@ -1,0 +1,9 @@
+[project]
+name = "esp32-iot-integration-lab"
+version = "0.1.0"
+description = "Public ESP32 IoT integration lab with generic firmware and synthetic serial logs."
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
