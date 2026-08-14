@@ -74,6 +74,10 @@ python -m ruff check .
 
 See [ROADMAP.md](ROADMAP.md).
 
+## Related Project
+
+- [cellular-gnss-tracker-lab](https://github.com/guilherme-lacerda-tech/cellular-gnss-tracker-lab): deeper cellular/GNSS state-machine lab with synthetic logs and hardware-validation checklist.
+
 ## Security
 
 No private hardware design, real operational logs, client identifiers or employer documentation are included.
